@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="learn.dao.CourseMapper" >
+  <resultMap id="BaseResultMap" type="learn.entity.Course" >
+    <id column="courseId" property="courseId" jdbcType="INTEGER" />
+    <result column="courseName" property="courseName" jdbcType="VARCHAR" />
+    <result column="courseType" property="courseType" jdbcType="VARCHAR" />
+    <result column="studyCount" property="studyCount" jdbcType="INTEGER" />
+    <result column="courseDetail" property="courseDetail" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    courseId, courseName, courseType, studyCount, courseDetail
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from course
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from course
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="learn.entity.Course" >
+    insert into course (courseId, courseName, courseType, studyCount, courseDetail
+      )
+    values (#{courseId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR},
+    #{courseType,jdbcType=VARCHAR}, #{studyCount,jdbcType=INTEGER}, #{courseDetail,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="learn.entity.Course" >
+    update course
+    <set >
+      <if test="courseName != null" >
+        courseName = #{courseName,jdbcType=VARCHAR},
+      </if>
+      <if test="courseType != null" >
+        courseType = #{courseType,jdbcType=VARCHAR},
+      </if>
+      <if test="studyCount != null" >
+        studyCount = #{studyCount,jdbcType=INTEGER},
+      </if>
+      <if test="courseDetail != null" >
+        courseDetail = #{courseDetail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="learn.entity.Course" >
+    update course
+    set courseName = #{courseName,jdbcType=VARCHAR},courseType = #{courseType,jdbcType=VARCHAR},
+        studyCount = #{studyCount,jdbcType=INTEGER},courseDetail = #{courseDetail,jdbcType=VARCHAR}
+    where courseId = #{courseId,jdbcType=INTEGER}
+  </update>
+  <select id = "selectAll" resultMap = "BaseResultMap">
+		select 
+		<include refid="Base_Column_List" />
+		from course
+	</select>
+  <select id = "selectByType" resultMap = "BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from course
+    where courseType = #{courseType,jdbcType=VARCHAR}
+  </select>
+  <select id = "search" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from course
+    where
+    courseName like "%"#{searchString,jdbcType=VARCHAR}"%"
+    or courseType like "%"#{searchString,jdbcType=VARCHAR}"%"
+    or courseDetail like "%"#{searchString,jdbcType=VARCHAR}"%"
+  </select>
+  <select id="selectFive" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from course
+    order by studyCount desc limit 8
+  </select>
+</mapper>

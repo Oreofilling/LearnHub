@@ -1,0 +1,363 @@
+.text-list {
+	float: left;
+	min-width: 480px;
+}
+
+.text-list-single {
+	border-bottom: 1px solid #d9dde1;
+	padding-bottom: 15px;
+}
+
+.text-list-field {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	width: 100px;
+	height: 50px;
+}
+
+.text-list-title {
+	display: flex;
+	align-items: Center;
+	min-height: 40px;
+	padding-top: 10px;
+}
+
+.text-list-content {
+	min-height: 50px;
+}
+
+.text-20 {
+	font-size: 20px;
+}
+
+.text-list-footer {
+	display: flex;
+	align-items: Center;
+}
+
+.text-list-footer2 {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	float: right;
+}
+
+.text-list-date {
+	font-size: 14px;
+	color: #999;
+	font-family: 'Microsoft YaHei';
+}
+
+.text-list-foot-font {
+	color: #999;
+	font-family: 'Microsoft YaHei';
+}
+
+.answer-list {
+	float: left;
+	min-width: 480px;
+}
+
+.answer-list-single {
+	border-bottom: 1px solid #d9dde1;
+	padding-bottom: 15px;
+}
+
+.answer-list-field {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	width: 100px;
+	height: 40px;
+}
+
+.answer-list-img {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	width: 100px;
+	height: 50px;
+}
+
+.answer-list-name {
+	display: flex;
+	align-items: Center;
+	justify-content: center;
+	max-width: 100px;
+	padding-top: 2px;
+}
+
+.answer-list-name-detail {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.answer-list-title {
+	display: flex;
+	align-items: Center;
+	min-height: 32px;
+	padding-top: 8px;
+}
+
+.answer-list-content {
+	min-height: 36px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.answer-list-content-show {
+	line-height: 18px;
+}
+
+.answer-list-right-show {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	padding-top: 6px;
+}
+
+.answer-list-footer {
+	display: flex;
+	justify-content: flex-end;
+	float: right;
+	bottom: 6px;
+}
+
+.answer-list-date {
+	font-size: 14px;
+	color: #999;
+	font-family: 'Microsoft YaHei';
+}
+
+.text-20 {
+	font-size: 20px;
+}
+
+.text-16 {
+	font-size: 16px;
+}
+
+.chapter-sub .chapter-sub-li {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 8px;
+	list-style-type: none;
+	padding: 0px 8px;
+}
+
+.chapter {
+	padding: 0px 10px 20px 10px;
+	border-bottom: 1px solid #eee;
+}
+
+.chapter strong {
+	font-size: 14px;
+}
+
+.icon-chapter {
+	border-radius: 50%;
+	background-color: #93999F;
+	color: #FFF;
+	font-weight: bold;
+	width: 25px;
+	height: 25px;
+	line-height: 27px;
+	text-align: center;
+	font-size: 16px;
+	float: left;
+	margin-right: 20px;
+	margin-top: 2px;
+}
+
+.chapter .drop-down {
+	float: right;
+	margin-top: 2px;
+	margin-right: 10px;
+	color: #93999F;
+}
+
+.f-main {
+	width: 1200px;
+	margin: 0 auto;
+	min-height: 400px;
+	margin-top: 20px;
+	margin-bottom: 100px;
+}
+
+
+/**
+* 课程分类页 start
+**/
+
+.learnhub-nav-row {
+	margin: 0px;
+	width: 100%;
+	border-bottom: 1px solid #d9dde1;
+	margin-bottom: 15px;
+}
+
+.learnhub-nav-row .hd {
+	float: left;
+	font-weight: bold;
+	font-size: 16px;
+	height: 40px;
+	line-height: 30px;
+}
+
+.learnhub-nav-row .learnhub-nav {
+	float: left;
+	width: 1090px;
+	text-align: left;
+	padding: 0px;
+	padding-left: 15px;
+}
+
+.learnhub-nav-row .learnhub-nav .learnhub-nav-item {
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	height: 30px;
+	margin-right: 20px;
+	border-radius: 4px;
+	margin-bottom: 5px;
+	list-style-type: none;
+}
+
+.learnhub-nav-row .learnhub-nav .cur-learnhub-nav {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	height: 30px;
+	background-color: #777777;
+}
+
+.learnhub-nav-row .learnhub-nav .cur-learnhub-nav a {
+	color: #FFF;
+}
+
+.learnhub-nav-item a {
+	padding: 5px 10px;
+	color: #4d555d;
+}
+
+.learnhub-nav-item a:hover {
+	color: #0089D2;
+	font-size: 14px;
+}
+
+.cur-question-sort {
+	border-bottom: 2px solid blue;
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
+}
+
+.tobe-center {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+}
+
+.tobe-heightCenter {
+	display: flex;
+	align-items: Center;
+}
+
+
+/**
+*课程分类页 end
+**/
+
+
+/**
+ * 用户空间
+ */
+
+.main-left-content {
+	display: flex;
+	justify-content: center;
+	align-items: Center;
+	height: 60px;
+	width: 200px;
+	color: gray;
+	font-size: 20px;
+	border-right: 1px solid black;
+}
+
+.main-left-actived {
+	color: black;
+	font-weight: bold;
+	border-bottom: 2px solid red;
+}
+
+.main-left-noactived {
+	color: gray;
+	font-weight: normal;
+	border-bottom: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+
+/* 指正常的未被访问过的链接*/
+
+a:visited {
+	text-decoration: none;
+}
+
+
+/*指已经访问过的链接*/
+
+a:hover {
+	text-decoration: none;
+}
+
+
+/*指鼠标在链接*/
+
+a:active {
+	text-decoration: none;
+}
+/* 指正在点的链接*/
+.main-right-top {
+	color: gray;
+	font-size: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.main-right-actived {
+	color: black;
+	font-weight: bold;
+}
+.main-left-noactived {
+	color: gray;
+	font-weight: normal;
+}
+.main-right-content {
+	font-size: 16px;
+	border-right: 1px solid black;
+	min-height: 50px;
+	display: flex;	
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+.main-right-single-course {
+	border-bottom: 1px solid black;
+	min-height: 80px;
+}
+
+.main-right-single-member {
+	padding-left:20px ;
+	padding-top: 20px;
+	height: 100px;
+	}

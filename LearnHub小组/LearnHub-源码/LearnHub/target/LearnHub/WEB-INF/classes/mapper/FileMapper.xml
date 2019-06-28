@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="learn.dao.FileMapper" >
+    <resultMap id="BaseResultMap" type="learn.entity.MyFile" >
+        <id column="fileId" property="fileId" jdbcType="INTEGER" />
+        <result column="sectionId" property="sectionId" jdbcType="INTEGER" />
+        <result column="fileName" property="fileName" jdbcType="VARCHAR" />
+        <result column="filePath" property="filePath" jdbcType="VARCHAR" />
+
+    </resultMap>
+    <sql id="fileInfo" >
+    fileId, sectionId, fileName, filePath
+    </sql>
+
+    <select id="selectFileId" resultMap="BaseResultMap">
+        select
+        <include refid="fileInfo" />
+        from file
+        where fileId=#{fileId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectCourseIdAndSectionId" resultMap="BaseResultMap">
+        select
+        <include refid="fileInfo" />
+        from file
+        where sectionId=#{sectionId,jdbcType=INTEGER}
+    </select>
+</mapper>

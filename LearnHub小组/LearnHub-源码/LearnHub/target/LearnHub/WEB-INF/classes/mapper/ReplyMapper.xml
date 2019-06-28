@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="learn.dao.ReplyMapper" >
+  <resultMap id="BaseResultMap" type="learn.entity.Reply" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="user_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="date" jdbcType="DATE" javaType="java.util.Date" />
+      <arg column="reply_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="reply_ref_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="reply_parent_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="praise_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="reply_content" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, user_name, date, reply_type, reply_ref_id, reply_parent_id, praise_num, 
+    reply_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from reply
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from reply
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="learn.entity.Reply" >
+    insert into reply (id, user_id, user_name, 
+      date, reply_type, reply_ref_id, 
+      reply_parent_id, praise_num, reply_content
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+      #{date,jdbcType=DATE}, #{replyType,jdbcType=INTEGER}, #{replyRefId,jdbcType=INTEGER}, 
+      #{replyParentId,jdbcType=INTEGER}, #{praiseNum,jdbcType=INTEGER}, #{replyContent,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="learn.entity.Reply" >
+    insert into reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="replyType != null" >
+        reply_type,
+      </if>
+      <if test="replyRefId != null" >
+        reply_ref_id,
+      </if>
+      <if test="replyParentId != null" >
+        reply_parent_id,
+      </if>
+      <if test="praiseNum != null" >
+        praise_num,
+      </if>
+      <if test="replyContent != null" >
+        reply_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="replyType != null" >
+        #{replyType,jdbcType=INTEGER},
+      </if>
+      <if test="replyRefId != null" >
+        #{replyRefId,jdbcType=INTEGER},
+      </if>
+      <if test="replyParentId != null" >
+        #{replyParentId,jdbcType=INTEGER},
+      </if>
+      <if test="praiseNum != null" >
+        #{praiseNum,jdbcType=INTEGER},
+      </if>
+      <if test="replyContent != null" >
+        #{replyContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="learn.entity.Reply" >
+    update reply
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="replyType != null" >
+        reply_type = #{replyType,jdbcType=INTEGER},
+      </if>
+      <if test="replyRefId != null" >
+        reply_ref_id = #{replyRefId,jdbcType=INTEGER},
+      </if>
+      <if test="replyParentId != null" >
+        reply_parent_id = #{replyParentId,jdbcType=INTEGER},
+      </if>
+      <if test="praiseNum != null" >
+        praise_num = #{praiseNum,jdbcType=INTEGER},
+      </if>
+      <if test="replyContent != null" >
+        reply_content = #{replyContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="learn.entity.Reply" >
+    update reply
+    set user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      date = #{date,jdbcType=DATE},
+      reply_type = #{replyType,jdbcType=INTEGER},
+      reply_ref_id = #{replyRefId,jdbcType=INTEGER},
+      reply_parent_id = #{replyParentId,jdbcType=INTEGER},
+      praise_num = #{praiseNum,jdbcType=INTEGER},
+      reply_content = #{replyContent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectReplyByCourseId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from reply
+    where reply_type = 1
+    and reply_ref_id = #{reply_ref_id,jdbcType=INTEGER}
+    order by date DESC,id DESC
+  </select>
+  <select id="selectReplyByArticleId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from reply
+    where reply_type = 2
+    and reply_ref_id = #{reply_ref_id,jdbcType=INTEGER}
+    order by date DESC,id DESC
+  </select>
+  <select id="selectReplyByAnswerId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from reply
+    where reply_type = 3
+    and reply_ref_id = #{reply_ref_id,jdbcType=INTEGER}
+    order by date DESC,id DESC
+  </select>
+  <update id="updatePraiseNum">
+    update reply
+    set praise_num = praise_num + #{0}
+    where id = #{1}
+  </update>
+  <delete id="deleteByRefId" parameterType="java.lang.Integer" >
+    delete from reply
+    where reply_ref_id = #{reply_ref_id,jdbcType=INTEGER}
+  </delete>
+</mapper>
